@@ -1,0 +1,61 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+// Header
+.header {
+  position: relative;
+  padding-top: 20px;
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 22px;
+    line-height: 42px;
+    text-transform: uppercase;
+    font-weight: 900;
+    transition: 0.7s;
+
+
+    span{
+        margin-left: 10px;
+
+    }
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+  }
+  .item {
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    padding-bottom: 5px;
+    a {
+      transition: 0.3s;
+    }
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+
+    &:hover {
+      &::after {
+        width: 50%;
+      }
+    }
+  }
+}
+
