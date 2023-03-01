@@ -6,19 +6,19 @@ import moment from 'moment'
 
 
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
+  { value: 'eur', label: 'Euro' },
+  { value: 'dzd', label: 'Algerian Dinar' },
+  { value: 'cad', label: 'Canadian Dollar' },
+  { value: 'aed', label: 'United Arab Emirates Dirham' },
+  { value: 'amd', label: 'Armenian dram' },
+  { value: 'iqd', label: 'Iraqi Dinar' },
+  { value: 'jmd', label: 'Jamaican Dollar' },
+  { value: 'ils', label: 'Israel shekels' },
+  { value: 'rub', label: 'Russian Rub' },
 ];
-
-
 
 const Home = () =>  {
 
-  const [selectedOption, setSelectedOption] = React.useState(null);
 
 
 
@@ -35,11 +35,7 @@ const Home = () =>  {
 
 <div className="selectersContainer">
 <div className="leftBlock">
-<Select
-className="select"
-        defaultValue={selectedOption}
-        options={options}
-      />
+
 
 
 
@@ -56,10 +52,10 @@ className="select"
 
 
 <div className="rightBlock">
-<Select
+{/* <Select
         defaultValue={selectedOption}
         options={options}
-      />
+      /> */}
 
 
 <input placeholder='...' type="text"/>
@@ -73,9 +69,7 @@ className="select"
 
     
   </div>
-  {/* <button className="btn" id="btn">Converter</button>
-  <small id="errorMSG"></small>
-  <small id="info"></small> */}
+
 
 </div>
 
