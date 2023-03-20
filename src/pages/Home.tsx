@@ -5,22 +5,18 @@ import moment from 'moment';
 import Selecter from '../components/selecter/select';
 import { convert, getCurrencies } from '../components/currency';
 
-// const options = [
-//   { value: 'eur', label: 'Euro' },
-//   { value: 'dzd', label: 'Algerian Dinar' },
-//   { value: 'cad', label: 'Canadian Dollar' },
-//   { value: 'aed', label: 'United Arab Emirates Dirham' },
-//   { value: 'amd', label: 'Armenian dram' },
-//   { value: 'iqd', label: 'Iraqi Dinar' },
-//   { value: 'jmd', label: 'Jamaican Dollar' },
-//   { value: 'ils', label: 'Israel shekels' },
-//   { value: 'rub', label: 'Russian Rub' },
-// ];
 
 const Home = () => {
-  const [currency, setCurrency] = React.useState<string>('eur');
+  const [baseCurrency, setBaseCurrency] = React.useState<string>('eur');
   const [targetCurrency, setTargetCurrency] = React.useState<string>('usd');
 const options = getCurrencies(); 
+
+const swap = () => {
+  let template = baseCurrency;
+  setBaseCurrency(targetCurrency); 
+  setTargetCurrency(template)
+}
+
 
   return (
     <div>
@@ -36,14 +32,14 @@ const options = getCurrencies();
               <Selecter 
               options={options} 
               label="From" 
-              value={currency}
-              stateChanger = {setCurrency}
+              value={baseCurrency}
+              stateChanger = {setBaseCurrency}
               />
 
               <input className="tochki" placeholder="..." type="text" />
             </div>
 
-            <button className="btn" id="swap" title="Swap Country">
+            <button onClick={swap} className="btn" id="swap" title="Swap Country">
               <svg
                 width="35"
                 height="35"
