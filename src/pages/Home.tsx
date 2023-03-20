@@ -3,22 +3,24 @@ import Header from '../components/Header';
 import './home.scss';
 import moment from 'moment';
 import Selecter from '../components/selecter/select';
+import { convert, getCurrencies } from '../components/currency';
 
-const options = [
-  { value: 'eur', label: 'Euro' },
-  { value: 'dzd', label: 'Algerian Dinar' },
-  { value: 'cad', label: 'Canadian Dollar' },
-  { value: 'aed', label: 'United Arab Emirates Dirham' },
-  { value: 'amd', label: 'Armenian dram' },
-  { value: 'iqd', label: 'Iraqi Dinar' },
-  { value: 'jmd', label: 'Jamaican Dollar' },
-  { value: 'ils', label: 'Israel shekels' },
-  { value: 'rub', label: 'Russian Rub' },
-];
+// const options = [
+//   { value: 'eur', label: 'Euro' },
+//   { value: 'dzd', label: 'Algerian Dinar' },
+//   { value: 'cad', label: 'Canadian Dollar' },
+//   { value: 'aed', label: 'United Arab Emirates Dirham' },
+//   { value: 'amd', label: 'Armenian dram' },
+//   { value: 'iqd', label: 'Iraqi Dinar' },
+//   { value: 'jmd', label: 'Jamaican Dollar' },
+//   { value: 'ils', label: 'Israel shekels' },
+//   { value: 'rub', label: 'Russian Rub' },
+// ];
 
 const Home = () => {
   const [currency, setCurrency] = React.useState<string>('eur');
   const [targetCurrency, setTargetCurrency] = React.useState<string>('usd');
+const options = getCurrencies(); 
 
   return (
     <div>
