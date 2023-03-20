@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import './home.scss';
 import moment from 'moment';
@@ -9,7 +9,15 @@ import { convert, getCurrencies } from '../components/currency';
 const Home = () => {
   const [baseCurrency, setBaseCurrency] = React.useState<string>('eur');
   const [targetCurrency, setTargetCurrency] = React.useState<string>('usd');
+  const [amount, setAmount] = React.useState<any>('')
+  const [result, setResult] = React.useState<any>('')
 const options = getCurrencies(); 
+
+useEffect(() => {
+  convert(baseCurrency, targetCurrency, amount).then(res => {
+    setResult(res)
+  })
+}, [baseCurrency, targetCurrency, amount])
 
 const swap = () => {
   let template = baseCurrency;
@@ -36,7 +44,12 @@ const swap = () => {
               stateChanger = {setBaseCurrency}
               />
 
-              <input className="tochki" placeholder="..." type="text" />
+              <input className="tochki"
+               onChange={(e) => setAmount(e.target.value) }
+               value={amount}
+                placeholder="..." 
+                type="text"
+                />
             </div>
 
             <button onClick={swap} className="btn" id="swap" title="Swap Country">
@@ -57,10 +70,13 @@ const swap = () => {
                label="To" 
                value={targetCurrency}
                stateChanger = {setTargetCurrency}
-
                />
 
-              <input className="tochki" placeholder="..." type="text" />
+              <input onChange={(e) => setBaseCurrency(e.target.value)} 
+               value={result !== 0 ? result : ''} 
+              className="tochki"
+               placeholder="..." 
+               type="text" />
             </div>
           </div>
         </div>
